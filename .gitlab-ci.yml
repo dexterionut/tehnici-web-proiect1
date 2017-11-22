@@ -3,21 +3,12 @@
 # Docs: https://docs.gitlab.com/ce/pages/
 image: ruby:2.3
 
-variables:
-  JEKYLL_ENV: production
+cache:
+  paths:
+  - vendor/
 
 before_script:
-- bundle install
-
-test:
-  stage: test
-  script:
-  - bundle exec jekyll build -d test
-  artifacts:
-    paths:
-    - test
-  except:
-  - master
+  - bundle install --path vendor
 
 pages:
   stage: deploy
@@ -27,5 +18,15 @@ pages:
     paths:
     - public
   only:
+  - master
+
+test:
+  stage: test
+  script:
+  - bundle exec jekyll build -d test
+  artifacts:
+    paths:
+    - test
+  except:
   - master
 
