@@ -324,5 +324,6 @@ body {
 }
 
 .gitlab-link {
-    text-underline: none;
+    color: white;
+    font-weight: bold;
 }
