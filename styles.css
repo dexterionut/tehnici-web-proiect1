@@ -60,7 +60,6 @@ body {
         height: calc(100vh - 60px);
         text-align: left;
 
-
     }
 
     .main {
@@ -135,6 +134,7 @@ body {
         max-height: calc(100vh - 60px);
         overflow: auto;
     }
+
     .col-1 {
         width: 8.33%;
     }
@@ -200,10 +200,25 @@ body {
     padding: 10px;
 }
 
-/* resize images proportional */
+/* resize images proportional and animante them */
 .img-resize {
     width: 100%;
     height: auto;
+    -webkit-animation: scaleaza 2s;
+    -webkit-transform: scale(0, 0);
+    -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes scaleaza {
+    100% {
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+@keyframes scaleaza {
+    100% {
+        transform: scale(1, 1);
+    }
 }
 
 .nav-row a {
